@@ -1,0 +1,30 @@
+[project]
+name = "playlist-downloader"
+version = "0.1.0"
+description = "YouTube playlist downloader and manager"
+requires-python = ">=3.11"
+dependencies = [
+    "google-auth-oauthlib>=0.4.6",
+    "google-api-python-client>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.9.1",
+    "pre-commit>=3.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[dependency-groups]
+dev = [
+    "ffmpeg-python>=0.2.0",
+    "yt-dlp>=2025.10.22",
+]

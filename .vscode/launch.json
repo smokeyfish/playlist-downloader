@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Playlist Downloader",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "playlist_downloader",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

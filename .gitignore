@@ -1,0 +1,15 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+# Cached client secrets for OAuth2 to access the YouTube API
+client_secret.json
+# Auth cache
+token.pickle
+# Downloaded videos
+downloads/*
+# Virtual environments
+.venv
