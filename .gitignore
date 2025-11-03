@@ -13,3 +13,4 @@ token.pickle
 downloads/*
 # Virtual environments
 .venv
+.DS_Store

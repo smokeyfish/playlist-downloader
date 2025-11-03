@@ -196,10 +196,7 @@ class PlaylistDownloader:
             command = f"./run_yt_dlp.sh -f {shlex.quote(fmt_selector)} -o {shlex.quote(output_template)} --restrict-filenames {shlex.quote(video_url)}"
 
             try:
-                env = os.environ.copy()
-                env["LANG"] = "en_US.UTF-8"
-                env["LC_ALL"] = "en_US.UTF-8"
-                subprocess.run(command, shell=True, executable="/bin/bash", check=True, env=env)
+                subprocess.run(command, shell=True, executable="/bin/bash", check=True)
                 print("✅ Download completed successfully.")
             except subprocess.CalledProcessError as e:
                 print(f"❌ yt-dlp error: {e}")
@@ -308,9 +305,9 @@ def main():
         token_pickle_file="token.pickle",
         playlist_url="https://www.youtube.com/playlist?list=PLpcF9uuJUqHs5Mu3subvLvAWkjyDtMfoH",
         # Email configuration (optional)
-        notification_email=None,  # Set to None to disable email
-        smtp_username=None,  # Your Gmail address
-        smtp_password=None,  # Gmail App Password
+        notification_email=os.environ.get("YTDOWNLOADER_NOTIFICATION_EMAIL", None),
+        smtp_username=os.environ.get("YTDOWNLOADER_SMTP_USERNAME", None),
+        smtp_password=os.environ.get("YTDOWNLOADER_SMTP_PASSWORD", None),
     )
 
     truncator = PlaylistTruncator(config)
